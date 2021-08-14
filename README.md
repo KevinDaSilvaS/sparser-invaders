@@ -15,17 +15,11 @@
 ##### ``Empty ``
  
 #### [SINTATIC ANALYSIS] - Using free context grammar to check if tokens are in the right place 
-``
-A -> [C] | {K} | {} | []``
-``
-C -> TEC | T``
-``
-K -> "key":TEK | "key":T``
-``
-E -> ,``
-``
-T -> "str" | 0-9 | 0.0-9.9 | A | true | false | null
-``
+#####``A -> [C] | {K} | {} | []``
+#####``C -> TEC | T``
+#####``K -> "key":TEK | "key":T``
+#####``E -> ,``
+#####``T -> "str" | 0-9 | 0.0-9.9 | A | true | false | null``
 
 #### [SEMANTIC ANALYSIS] - As warnings to inform the user of duplicated keys in the same scope
 
