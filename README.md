@@ -23,4 +23,4 @@
 
 #### [SEMANTIC ANALYSIS] - As warnings to inform the user of duplicated keys in the same scope
 
-#### [CODE GEN] - From the tokens IR is build and soon transformed in a yml and/ or js file
+#### [CODE GEN] - From the tokens IR is built and soon transformed in a yml and/ or js file
