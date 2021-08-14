@@ -1,0 +1,29 @@
+{
+    "k": 12.00,
+    "e": "",
+    "ks": null,
+    "key": true,
+    "2key2": false,
+    "k2": {
+        "kevin": ["kevin da silva", ["str2"], ["str3"], {
+            "k": 123,
+            "kt": 123
+        }, [["str2"]],
+        {
+            "k": {
+                "e":"uu"
+            },
+            "kt": [123]
+        }, [true]],
+        "k23": {
+            "kevin2": [],
+            "k2": {
+                "kevin3": 123,
+                "k23": {
+                    "kevin4": ["kevin da silva", true, 122.00, null]
+                }
+            }
+        },
+        "kevin3": {}
+    }
+}
