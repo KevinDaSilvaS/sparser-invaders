@@ -2,7 +2,7 @@
 
 ### A haskell CLI app to parse json files and translate them into js objects and/or yml files using compiler techniques and tools
 #### [LEXICAL ANALYSIS] - Tokenizing symbols in
-<img src="https://drive.google.com/file/d/1xrpfYxeSfeeUruu_xNhbcmuZ8FnDqfzs/view?usp=sharing">
+<img src="https://i.postimg.cc/PqY691f5/lexerror.jpg">
 ##### ``OpenObjToken       | ``
 ##### ``CloseObjToken      | ``
 ##### ``IdentifierKeyToken |``
