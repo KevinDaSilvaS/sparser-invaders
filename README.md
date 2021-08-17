@@ -2,7 +2,6 @@
 
 ### A haskell CLI app to parse json files and translate them into js objects and/or yml files using compiler techniques and tools
 #### [LEXICAL ANALYSIS] - Tokenizing symbols in
-<img src="https://i.postimg.cc/PqY691f5/lexerror.jpg">
 ##### ``OpenObjToken       | ``
 ##### ``CloseObjToken      | ``
 ##### ``IdentifierKeyToken |``
@@ -14,6 +13,8 @@
 ##### ``BooleanToken       |``
 ##### ``SeparatorToken     |``
 ##### ``Empty ``
+
+<img src="https://i.postimg.cc/PqY691f5/lexerror.jpg">
  
 #### [SINTATIC ANALYSIS] - Using free context grammar to check if tokens are in the right place 
 ##### ``A -> [C] | {K} | {} | []``
