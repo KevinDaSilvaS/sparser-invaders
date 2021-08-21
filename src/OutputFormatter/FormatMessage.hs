@@ -25,6 +25,6 @@ _success msg = backgroundSuccess ++ " [Success] "
 
 _info :: Show a => a -> [Char]
 _info msg = textInfo ++ " " ++ show msg ++ " " ++ reset
-_backgroundedInfo :: [Char] -> [Char]
 
+_backgroundedInfo :: [Char] -> [Char]
 _backgroundedInfo txt = backgroundInfo ++ txt ++ reset
