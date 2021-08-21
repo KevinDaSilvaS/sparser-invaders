@@ -1,6 +1,6 @@
 module CLI.HelpScreen where
 
-import OutputFormater.FormatMessage ( _info, _backgroundedInfo )
+import OutputFormatter.FormatMessage ( _info, _backgroundedInfo )
 
 helpTab :: IO ()
 helpTab = do 

@@ -7,7 +7,7 @@ import Transpiler.SemanticAnalyser ( startSemanticAnalysis )
 import Transpiler.GenerateJSCode ( genJSFile )
 import Transpiler.GenerateYmlCode ( genYmlFile ) 
 import Transpiler.TokensJson ( TokenJson )
-import OutputFormater.FormatMessage ( _error, _warning, _success )
+import OutputFormatter.FormatMessage ( _error, _warning, _success )
 
 startParsing :: [FilePath] -> IO ()
 startParsing [path, format] = do

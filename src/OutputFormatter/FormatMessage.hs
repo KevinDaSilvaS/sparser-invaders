@@ -1,6 +1,6 @@
-module OutputFormater.FormatMessage where
+module OutputFormatter.FormatMessage where
 
-import OutputFormater.Colors
+import OutputFormatter.Colors
     ( backgroundError,
       backgroundInfo,
       backgroundSuccess,

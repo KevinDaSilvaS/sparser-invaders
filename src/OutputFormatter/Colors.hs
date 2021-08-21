@@ -1,4 +1,4 @@
-module OutputFormater.Colors where
+module OutputFormatter.Colors where
 
 backgroundError :: [Char]
 backgroundError = "\x1b[41m"

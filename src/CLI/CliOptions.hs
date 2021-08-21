@@ -1,7 +1,7 @@
 
 module CLI.CliOptions where
 import Transpiler.TranspilerEntrypoint ( startParsing )
-import OutputFormater.FormatMessage ( _info )
+import OutputFormatter.FormatMessage ( _info )
 import CLI.HelpScreen ( helpTab )
 
 dispatch :: [([Char], [String] -> IO ())]
