@@ -1,2 +1,7 @@
+import Unit.Src.OutputFormatter.ColorsSpec ( colorsSpec )
+import Unit.Src.OutputFormatter.FormatMessageSpec ( formatMessageSpec )
+
 main :: IO ()
-main = putStrLn "Test suite not yet implemented"
+main = do
+    colorsSpec
+    formatMessageSpec
