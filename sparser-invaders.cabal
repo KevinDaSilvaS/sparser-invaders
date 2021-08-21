@@ -31,8 +31,8 @@ library
       CLI.Entrypoint
       CLI.HelpScreen
       Lib
-      OutputFormater.Colors
-      OutputFormater.FormatMessage
+      OutputFormatter.Colors
+      OutputFormatter.FormatMessage
       TestApp
       Transpiler.GenerateJSCode
       Transpiler.GenerateYmlCode
@@ -74,4 +74,5 @@ test-suite sparser-invaders-test
   build-depends:
       base >=4.7 && <5
     , sparser-invaders
+    , hspec
   default-language: Haskell2010
