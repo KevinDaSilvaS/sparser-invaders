@@ -1,7 +1,6 @@
 module Transpiler.GenerateJSCode where
 
-import System.IO
-
+allowedStartKeyChars :: [Char]
 allowedStartKeyChars = ['A'..'z']
 
 genJSFile :: [[Char]] -> [Char] -> IO ()
@@ -12,6 +11,7 @@ genJSFile ir path = do
                     ++ ";"
     writeFile (path++".js") contents
 
+addLB :: [Char] -> [Char]
 addLB x
     | last x == ':' && notElem (head x) allowedStartKeyChars =
         "\'" ++ init x ++ "\'" ++ [last x]

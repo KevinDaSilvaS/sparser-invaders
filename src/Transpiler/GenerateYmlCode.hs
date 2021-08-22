@@ -1,9 +1,11 @@
 module Transpiler.GenerateYmlCode where
 
+genYmlFile :: [[Char]] -> [Char] -> IO ()
 genYmlFile ir path = do 
         let lb = formatYml ir ""
         writeFile (path++".yml") lb
     
+formatYml :: [[Char]] -> [Char] -> [Char]
 formatYml (x:xs) spacing
     | x == "[" = "\n" ++ formatArrayYml xs (spacing++"  ")
     | x == "]" = formatYml xs (drop 2 spacing)
@@ -14,6 +16,7 @@ formatYml (x:xs) spacing
     | otherwise = x ++ formatYml xs spacing
 formatYml [] _ = ""
 
+formatArrayYml :: [[Char]] -> [Char] -> [Char]
 formatArrayYml (x:xs) spacing
     | x == "{" = spacing ++ "- " ++ "key" ++ x ++ ":" 
         ++ "\n" ++ formatObjInArr xs (spacing++"  ")
@@ -35,6 +38,7 @@ formatArrayYml (x:xs) spacing
         [a, b] = take 2 xs
 formatArrayYml [] _ = ""
 
+formatObjInArr :: [[Char]] -> [Char] -> [Char]
 formatObjInArr (x:xs) spacing 
     | x == "{" = "\n" ++ formatObjInArr xs (spacing++"  ")
     | x == "}" = "\n" ++ formatArrayYml xs (drop 2 spacing)
