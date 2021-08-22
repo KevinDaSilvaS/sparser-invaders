@@ -3,8 +3,12 @@ module Unit.Src.Transpiler.HelpersSpec where
 import Test.Hspec ( shouldBe, it, describe, hspec ) 
 
 import Transpiler.TokensJson
-import Transpiler.Helpers 
+    ( TokenJson(Empty, IdentifierKeyToken, NumberToken, BooleanToken,
+                OpenArrayToken, OpenObjToken, NullToken, SeparatorToken,
+                CloseArrayToken, CloseObjToken) )
+import Transpiler.Helpers ( isKey, isValue ) 
 
+helpersSpec :: IO ()
 helpersSpec = do 
     helpersIsValueSpec 
     helpersIsKeySpec
