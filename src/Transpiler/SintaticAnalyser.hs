@@ -14,7 +14,7 @@ _A (program, line, col) stackObjs stackArrs tokensList
         ++ show nLine ++ " col: " ++ show nCol)
     | currToken == "{" && isKey nextToken      = 
         _K (list, nLine, nCol) (stackObjs+1) stackArrs nTokensList
-    | currToken == "{" && snd nextToken == "}" = 
+    | currToken == "{" && sndNextToken == "}" = 
         _A (list, nLine, nCol) (stackObjs+1) stackArrs nTokensList
     | currToken == "[" && null list = error 
         ("[Sintatic Analysis] Unexpected end of file in line: " 
@@ -23,15 +23,15 @@ _A (program, line, col) stackObjs stackArrs tokensList
         _T (list, nLine, nCol) stackObjs (stackArrs+1) nTokensList
     | currToken == "[" = 
         _A (list, nLine, nCol) stackObjs (stackArrs+1) nTokensList
-    | currToken == "}" && snd nextToken == "," = 
+    | currToken == "}" && sndNextToken == "," = 
         _E (list, nLine, nCol) (stackObjs-1) stackArrs nTokensList
-    | currToken == "}" && (snd nextToken == "]" 
-    || snd nextToken == "}" || snd nextToken == "") = 
+    | currToken == "}" && (sndNextToken == "]" 
+    || sndNextToken == "}" || sndNextToken == "") = 
         _A (list, nLine, nCol) (stackObjs-1) stackArrs nTokensList
-    | currToken == "]" && snd nextToken == "," = 
+    | currToken == "]" && sndNextToken == "," = 
         _E (list, nLine, nCol) stackObjs (stackArrs-1) nTokensList
-    | currToken == "]" && (snd nextToken == "]" 
-        || snd nextToken == "}" || snd nextToken == "") = 
+    | currToken == "]" && (sndNextToken == "]" 
+        || sndNextToken == "}" || sndNextToken == "") = 
         _A (list, nLine, nCol) stackObjs (stackArrs-1) nTokensList
     | otherwise = error 
         ("[Sintatic Analysis] Unexpected token " ++ show nextToken
@@ -41,22 +41,25 @@ _A (program, line, col) stackObjs stackArrs tokensList
         (token, list, nLine, nCol) = getToken (program, line, col)
         (nextToken, nlist, nNLine, nNCol) = getToken (list, nLine, nCol)
         nTokensList = tokensList ++ [token]
+        sndNextToken = snd nextToken
 
-_K ([], _, _) stackObjs stackArrs tokensList = error ("err: _K")
+_K ([], _, _) stackObjs stackArrs tokensList =
+    error "[Sintatic Analysis] Unexpected EOF in _K"
 _K (program, line, col) stackObjs stackArrs tokensList
-    | null list = error 
+    | null list     = error 
         ("[Sintatic Analysis] Not expecting end of file in line: " 
         ++ show nLine ++ " col: " ++ show nCol)
-    | isKey token = _T (list, nLine, nCol) stackObjs stackArrs nTokensList
+    | isKey token   = _T (list, nLine, nCol) stackObjs stackArrs nTokensList
     | isValue token = _T (program, line, col) stackObjs stackArrs tokensList
-    | otherwise = error 
+    | otherwise     = error 
         ("[Sintatic Analysis] Unexpected token " ++ show token
         ++ " in line: " ++ show nLine ++ " col: " ++ show nCol)
     where
         (token, list, nLine, nCol) = getToken (program, line, col)
         nTokensList = tokensList ++ [token]
 
-_T ([], _, _) stackObjs stackArrs tokensList = error ("err: _T")
+_T ([], _, _) stackObjs stackArrs tokensList = 
+    error "[Sintatic Analysis] Unexpected EOF in _T"
 _T (program, line, col) stackObjs stackArrs tokensList
     | null list = error 
         ("[Sintatic Analysis] Not expecting end of file in line: " 
@@ -73,7 +76,8 @@ _T (program, line, col) stackObjs stackArrs tokensList
         (token, list, nLine, nCol) = getToken (program, line, col)
         nTokensList = tokensList ++ [token]
 
-_E ([], _, _) stackObjs stackArrs tokensList = error ("err: _E")
+_E ([], _, _) stackObjs stackArrs tokensList = 
+    error "[Sintatic Analysis] Unexpected EOF in _E"
 _E (program, line, col) stackObjs stackArrs tokensList
     | currToken == "," && (snd nextToken == "]" || snd nextToken == ",") = 
         error 
