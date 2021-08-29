@@ -1,7 +1,11 @@
-module Transpiler.LexicalAnalyser where
+module Transpiler.LexicalAnalyser (getToken) where
 
 import Transpiler.TokensJson
+    ( TokenJson(NullToken, Empty, OpenObjToken, CloseObjToken,
+                OpenArrayToken, CloseArrayToken, SeparatorToken,
+                IdentifierKeyToken, StringToken, NumberToken, BooleanToken) )
 
+getToken :: ([Char], Int, Int) -> ((TokenJson, [Char]), [Char], Int, Int)
 getToken ([], line, col) = ((Empty, ""), [], line, col)
 getToken (program, line, col) = entrypoint program [] line col
 
